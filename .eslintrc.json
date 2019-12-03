@@ -26,6 +26,11 @@
             "warn", { "extensions": [".js", ".jsx"] }
         ],
         "import/no-unresolved": "off",
-        "no-shadow": "off"
+        "no-shadow": "off",
+        "react/jsx-indent": "off",
+        "no-console": "off",
+        "no-use-before-define": "off",
+        "no-param-reassign": "off",
+        "no-undef": "off"
     }
 }
