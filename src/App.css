@@ -1,0 +1,11 @@
+.btn {
+  height: 4rem;
+  width: 4rem;
+}
+
+.display {
+  height: 4rem;
+  width: 255px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}

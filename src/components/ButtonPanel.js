@@ -1,11 +1,38 @@
 import React from 'react';
 import Button from './Button';
 
-function ButtonPanel(props) {
+function ButtonPanel() {
   return (
     <div>
-      The Button Panel
-      <Button />
+      <div>
+        <Button />
+        <Button />
+        <Button />
+        <Button />
+      </div>
+      <div>
+        <Button />
+        <Button />
+        <Button />
+        <Button />
+      </div>
+      <div>
+        <Button />
+        <Button />
+        <Button />
+        <Button />
+      </div>
+      <div>
+        <Button />
+        <Button />
+        <Button />
+        <Button />
+      </div>
+      <div>
+        <Button />
+        <Button />
+        <Button />
+      </div>
     </div>
   );
 }
