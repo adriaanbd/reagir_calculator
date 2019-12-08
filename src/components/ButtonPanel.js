@@ -7,7 +7,7 @@ function ButtonPanel(props) {
       The Button Panel
       <Button />
     </div>
-  )
+  );
 }
 
 export default ButtonPanel;
