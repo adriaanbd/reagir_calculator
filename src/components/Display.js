@@ -8,6 +8,7 @@ function Display(props) {
       type="text"
       name="display"
       value={result}
+      className="display"
     />
   );
 }
