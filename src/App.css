@@ -17,8 +17,18 @@
 
 .display {
   display: flex;
-  height: 4rem;
-  width: 255px;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: lightgrey;
+  color: white;
+  height: 100px;
   border: 1px solid lightgray;
   border-radius: 10px;
+}
+
+.result {
+  padding: 1rem;
+  border: 1px solid black;
+  font-size: 2rem;
+  font-weight: bold;
 }

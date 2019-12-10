@@ -4,13 +4,16 @@ import PropTypes from 'prop-types';
 function Display(props) {
   const { result } = props;
   return (
-    <input
-      type="text"
-      name="display"
-      value={result || '0'}
-      className="display"
-      disabled
-    />
+    <div className="display">
+      <div
+        type="text"
+        name="display"
+        disabled
+      />
+      <span className="result">
+        {result || '0'}
+      </span>
+    </div>
   );
 }
 
