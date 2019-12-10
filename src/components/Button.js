@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Button(props) {
-  const { name } = props;
+  const { name, symbol } = props;
   return (
-    <button
+    <input
       type="button"
       name={name}
+      value={symbol}
       aria-label="symbol"
       className="btn"
     />
@@ -15,6 +16,7 @@ function Button(props) {
 
 Button.propTypes = {
   name: PropTypes.string.isRequired,
+  symbol: PropTypes.string.isRequired,
 };
 
 export default Button;
