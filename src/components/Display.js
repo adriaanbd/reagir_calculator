@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 function Display(props) {
   const { result } = props;
   return (
-    <div
+    <input
       type="text"
       name="display"
-      value={result}
+      value={result || '0'}
       className="display"
+      disabled
     />
   );
 }
