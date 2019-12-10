@@ -1,9 +1,22 @@
+.calculator {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  border: 1px solid black;
+}
+
+.btn-panel {
+  display: flex;
+  flex-direction: column;
+}
+
 .btn {
   height: 4rem;
   width: 4rem;
 }
 
 .display {
+  display: flex;
   height: 4rem;
   width: 255px;
   border: 1px solid lightgray;
