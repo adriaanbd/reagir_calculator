@@ -22,14 +22,14 @@ function ButtonPanel() {
         <Button symbol="6" />
         <Button symbol="-" />
       </div>
-      <div>
+      <div className="row">
         <Button symbol="1" />
         <Button symbol="2" />
         <Button symbol="3" />
         <Button symbol="+" />
       </div>
       <div className="row">
-        <Button symbol="0" />
+        <Button symbol="0" wide />
         <Button symbol="." />
         <Button symbol="=" />
       </div>
