@@ -10,10 +10,14 @@
   flex-direction: column;
 }
 
-.btn {
+.row {
+  height: 100px;
+}
+
+/* .btn {
   height: 4rem;
   width: 4rem;
-}
+} */
 
 .display {
   display: flex;
