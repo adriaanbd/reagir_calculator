@@ -1,11 +1,40 @@
+.calculator {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  border: 1px solid black;
+  margin: auto;
+}
+
+.btn-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  height: 100px;
+}
+
 .btn {
-  height: 4rem;
-  width: 4rem;
+  width: 25%;
+  height: 100%;
+  border: 1px solid black;
+  font-size: 2rem;
+  color: black;
 }
 
 .display {
-  height: 4rem;
-  width: 255px;
-  border: 1px solid lightgray;
-  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: darkgrey;
+  color: white;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.result {
+  padding: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
 }
