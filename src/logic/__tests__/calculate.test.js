@@ -28,6 +28,75 @@ describe('when a symbol is pressed', () => {
       });
     });
   });
+  describe('if it is the "+/-" button', () => {
+    describe('given there is a next value in state', () => {
+      it('converts next to a negative number and returns state', () => {
+        const state = { total: null, next: '1.1', operator: null };
+        const result = calculate(state, '+/-');
+        expect(result).toEqual({ ...state, next: '-1.1' });
+      });
+    });
+
+    describe('given there is a total value and no next value in state', () => {
+      it('converts total to a negative number and returns state', () => {
+        const state = { total: '10.5', next: null, operator: null };
+        const result = calculate(state, '+/-');
+        expect(result).toEqual({ ...state, total: '-10.5' });
+      });
+    });
+    describe('given there is no total and no next value in state', () => {
+      it('returns an empty object literal', () => {
+        const state = { total: null, next: null, operator: null };
+        const result = calculate(state, '+/-');
+        expect(result).toEqual({});
+      });
+    });
+  });
+
+  describe('if it is the decimal "." button', () => {
+    describe('given there is a next whole number in state', () => {
+      it('it adds a decimal dot to the number and returns state', () => {
+        const state = { total: null, next: '10', operator: null };
+        const result = calculate(state, '.');
+        expect(result).toEqual({ ...state, next: '10.' });
+      });
+    });
+    describe('given next already has a decimal dot in state', () => {
+      it('it returns an empty object literal', () => {
+        const state = { total: null, next: '10.', operator: null };
+        const result = calculate(state, '.');
+        expect(result).toEqual({});
+      });
+    });
+    describe('given total value with a whole number in state', () => {
+      it('it returns an empty object literal', () => {
+        const state = { total: '10', next: null, operator: null };
+        const result = calculate(state, '.');
+        expect(result).toEqual({ ...state, total: '10.' });
+      });
+    });
+    describe('given total already has a decimal dot in state', () => {
+      it('it returns an empty object literal', () => {
+        const state = { total: '10.', next: null, operator: null };
+        const result = calculate(state, '.');
+        expect(result).toEqual({});
+      });
+    });
+    describe('given there is an operation in state', () => {
+      it('adds a decimal dot to next an returns state', () => {
+        const state = { total: null, next: '10', operator: 'X' };
+        const result = calculate(state, '.');
+        expect(result).toEqual({ ...state, next: '10.' });
+      });
+    });
+    describe('given there it is the first button to be pressed', () => {
+      it('adds sets total to 0 with a decimal dot returns state', () => {
+        const state = { total: null, next: null, operator: null };
+        const result = calculate(state, '.');
+        expect(result).toEqual({ ...state, total: '0.' });
+      });
+    });
+  });
 });
 
 describe('when a number is pressed', () => {
@@ -52,7 +121,6 @@ describe('when a number is pressed', () => {
   });
 
   describe('given there is an operation in state', () => {
-
     describe('and there is no next value in state', () => {
       it('sets value in next with number and returns state', () => {
         const state = { total: '5', next: null, operator: 'X' };
