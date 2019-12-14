@@ -35,6 +35,15 @@ function calculate(calcData, btnName) {
       if (operator) return { ...calcData, next: next + symbol };
       return { ...calcData, total: `0${symbol}` };
     }
+
+    if (operator) {
+      return {
+        total: operate(total, next, operator), next: null, operator: symbol,
+      };
+    }
+
+    if (!next) return { ...calcData, operator: symbol };
+    return { total: next, next: null, operator: btnName };
   }
   if (!next) return { ...calcData, next: btnName };
   if (next) return { ...calcData, next: next + btnName };

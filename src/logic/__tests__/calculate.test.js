@@ -1,4 +1,5 @@
 import calculate from '../calculate';
+import operate from '../operate';
 
 describe('when a symbol is pressed', () => {
   describe('if it is the AC button', () => {
@@ -28,6 +29,7 @@ describe('when a symbol is pressed', () => {
       });
     });
   });
+
   describe('if it is the "+/-" button', () => {
     describe('given there is a next value in state', () => {
       it('converts next to a negative number and returns state', () => {
@@ -94,6 +96,33 @@ describe('when a symbol is pressed', () => {
         const state = { total: null, next: null, operator: null };
         const result = calculate(state, '.');
         expect(result).toEqual({ ...state, total: '0.' });
+      });
+    });
+  });
+
+  describe('if it is an arithmetic operator', () => {
+    describe('given there is an existing operator in state', () => {
+      it('sets the result of operate as total value, resets next and sets new operator to the arithmetic operator', () => {
+        const state = { total: '5', next: '5', operator: 'X' };
+        const result = calculate(state, '+');
+        const expected = { total: '25', next: null, operator: '+' };
+        expect(result).toEqual(expected);
+      });
+    });
+
+    describe('given there is no operator or next value in state', () => {
+      it('sets operator to the symbol and returns state', () => {
+        const state = { total: null, next: null, operator: null };
+        const result = calculate(state, 'X');
+        expect(result).toEqual({ ...state, operator: 'X' });
+      });
+    });
+
+    describe('given there is a next value but no operator in state', () => {
+      it('sets operator to the symbol, total to next and returns state', () => {
+        const state = { total: null, next: '5', operator: null };
+        const result = calculate(state, 'X');
+        expect(result).toEqual({ total: '5', next: null, operator: 'X' });
       });
     });
   });
