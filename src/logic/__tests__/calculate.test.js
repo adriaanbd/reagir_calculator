@@ -1,5 +1,4 @@
 import calculate from '../calculate';
-import operate from '../operate';
 
 describe('when a symbol is pressed', () => {
   describe('if it is the AC button', () => {
