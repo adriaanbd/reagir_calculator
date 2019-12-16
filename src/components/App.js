@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Display from './Display';
 import ButtonPanel from './ButtonPanel';
 import calculate from '../logic/calculate';
 
 function App() {
+  const [total, setTotal] = useState(0);
+  const [next, setNext] = useState();
+  const [operator, setOperator] = useState();
+
+  function handleClick(btnName) {
+  }
+
   return (
     <div className="calculator">
       <Display />
-      <ButtonPanel />
+      <ButtonPanel clickHandler={handleClick} />
     </div>
   );
 }
