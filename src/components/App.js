@@ -9,6 +9,7 @@ function App() {
   const [operator, setOperator] = useState();
 
   function handleClick(btnName) {
+    console.log(`Click Handler called with ${btnName}`);
   }
 
   return (

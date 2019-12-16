@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 function Button(props) {
   const {
-    name, symbol, color, wide,
+    symbol, color, wide, clickHandler,
   } = props;
   const width = wide ? '50%' : '25%';
   const styles = { backgroundColor: color, width };
   return (
     <input
       type="button"
-      name={name}
       value={symbol}
+      onClick={() => clickHandler(symbol)}
       aria-label="symbol"
       className="btn"
       style={styles}
@@ -25,10 +25,11 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  name: PropTypes.string.isRequired,
+  // name: PropTypes.string.isRequired,
   symbol: PropTypes.string.isRequired,
   color: PropTypes.string,
   wide: PropTypes.bool,
+  clickHandler: PropTypes.func.isRequired,
 };
 
 export default Button;
