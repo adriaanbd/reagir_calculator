@@ -17,9 +17,10 @@ function calculate(calcData, btnName) {
   const symbol = OPERATORS[btnName];
 
   if (symbol) {
-    if (symbol === 'AC') return { total: null, next: null, operator: null };
+    if (symbol === 'AC') return { total: '0', next: null, operator: null };
     if (symbol === '=') {
       if (!next || !operator) return {};
+      if (next === '0' || total === '0') return {};
       return { total: operate(total, next, operator), next: null, operator: null };
     }
     if (symbol === '+/-') {
@@ -45,8 +46,10 @@ function calculate(calcData, btnName) {
     if (!next) return { ...calcData, operator: symbol };
     return { total: next, next: null, operator: btnName };
   }
+
   if (!next) return { ...calcData, next: btnName };
   if (next) return { ...calcData, next: next + btnName };
+
 
   throw Error('Something went wrong...');
 }
