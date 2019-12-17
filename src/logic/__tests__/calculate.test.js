@@ -2,9 +2,9 @@ import calculate from '../calculate';
 
 describe('when a symbol is pressed', () => {
   describe('if it is the AC button', () => {
-    it('returns a state with null values', () => {
+    it('returns a state with total set to zero and rest to null values', () => {
       const state = { total: '10', next: '5', operator: 'X' };
-      const newState = { total: null, next: null, operator: null };
+      const newState = { total: '0', next: null, operator: null };
       const result = calculate(state, 'AC');
       expect(result).toEqual(newState);
     });
