@@ -15,7 +15,6 @@ const OPERATORS = {
 function calculate(calcData, btnName) {
   const { total, next, operator } = calcData;
   const symbol = OPERATORS[btnName];
-
   if (symbol) {
     if (symbol === 'AC') return { total: '0', next: null, operator: null };
     if (symbol === '=') {
@@ -38,6 +37,7 @@ function calculate(calcData, btnName) {
     }
 
     if (operator) {
+      if (!next) return { ...calcData, operator: symbol };
       return {
         total: operate(total, next, operator), next: null, operator: symbol,
       };

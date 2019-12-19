@@ -100,7 +100,13 @@ describe('when a symbol is pressed', () => {
   });
 
   describe('if it is an arithmetic operator', () => {
-    describe('given there is an existing operator in state', () => {
+    describe('given an existing operator in state and next is null', () => {
+      it('returns state with new operator', () => {
+        const state = { total: '5', next: null, operator: 'X' };
+        const result = calculate(state, '+');
+        const expected = { ...state, operator: '+' };
+        expect(result).toEqual(expected);
+      });
       it('sets the result of operate as total value, resets next and sets new operator to the arithmetic operator', () => {
         const state = { total: '5', next: '5', operator: 'X' };
         const result = calculate(state, '+');
