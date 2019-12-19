@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="calculator">
-      <Display result={total} />
+      <Display result={next || total} />
       <ButtonPanel clickHandler={handleClick} />
     </div>
   );
